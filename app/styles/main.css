@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow: auto;
+  font-family: Roboto, sans-serif;
+  background-image: url("/images/apurba_2.jpg");
+  background-size: cover;
+}
