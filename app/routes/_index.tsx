@@ -3,6 +3,7 @@ import type { ActionFunction, V2_MetaFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import LoginComp from "~/components/LoginComp";
+import { converToLower } from "~/utils/converToLowercarse";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -18,8 +19,10 @@ export const action: ActionFunction = async ({ request }) => {
     password: formData.get("password"),
   };
   // Add validation
+  const { username, password } = userData;
   const isDataInvalid = Boolean(
-    userData.username !== "ipgautomotive" && userData.password !== "carmaker"
+    converToLower(username as string) !== "ipgautomotive" &&
+      converToLower(password as string) !== "carmaker"
   );
 
   if (isDataInvalid) {
